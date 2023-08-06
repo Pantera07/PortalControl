@@ -2,27 +2,39 @@
     <modelVersion>4.0.0</modelVersion>
     
     <!-- Project information -->
-    <groupId>dev._2lstudios</groupId>
-    <artifactId>ExamplePlugin</artifactId>
+    <groupId>dev.pantera07</groupId>
+    <artifactId>PortalControl</artifactId>
     <packaging>jar</packaging>
 
     <!-- Plugin Information -->
-    <name>ExamplePlugin</name>
-    <description>This is just an example plugin</description>
+    <name>PortalControl</name>
+    <description>Control the portal.</description>
     <version>0.0.1</version>
-    <url>https://github.com/2lstudios-mc/bukkit-boilerplate</url>
+    <url>https://github.com/Pantera07/PortalControl</url>
 
     <properties>
-        <author>2LStudios</author>
-        <mainClass>dev._2lstudios.example.ExamplePlugin</mainClass>
+        <author>Pantera07</author>
+        <mainClass>dev.pantera07.portalcontrol.PortalControl</mainClass>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
    <!-- External repositories -->
     <repositories>
         <repository>
-            <id>spigot-repo</id>
+            <id>spigotmc-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>papermc-repo</id>
+            <url>https://papermc.io/repo/repository/maven-public/</url>
+        </repository>
+        <repository>
+            <id>sonatype</id>
+            <url>https://oss.sonatype.org/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>CodeMC</id>
+            <url>https://repo.codemc.org/repository/maven-public</url>
         </repository>
     </repositories>
 
@@ -31,7 +43,13 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.18.1-R0.1-SNAPSHOT</version>
+            <version>1.20.1-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.destroystokyo.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>1.20.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -65,26 +83,6 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
-            </plugin>
-
-            <!-- Include dependencies inside jar -->
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.3.0</version>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id> 
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
